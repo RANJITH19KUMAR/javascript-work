@@ -1,0 +1,70 @@
+<body>
+    <style>
+        body{
+           font-family: 'Times New Roman', Times, serif;
+        }
+        input{
+            border-color: red;
+            margin-top: 60px;
+            margin-left: 30px;
+            padding: 20px;
+            width: 350px;
+            position: static;
+            
+            
+        }
+        button {
+            font-size: 16px;
+            padding: 10px;
+            margin: 10px;
+            width: 70px;
+            height: 40px;
+            border-color: rgb(29, 27, 27);
+            text-align: center;
+        }
+        li{
+            text-align: center;
+            font-size: 18px;
+            text-transform: uppercase;
+        }
+        
+        div{
+            width: 100%;
+            height: 100%;
+            background-color: rgb(132, 150, 184);
+            text-align: center;
+            
+        }
+      h1{
+        color: black;
+        padding: 50px;
+        text-decoration: underline solid black;
+      }
+       
+    </style>
+   
+    <div>
+        <h1>Fill in the Bar@</h1> 
+<input id="input">
+<button onclick="Add()">Add</button>
+<ul id="list container">
+    <li>
+        <button onclick="deleteItem(event)">Delete</button>
+    </li>
+</ul>
+</div>
+<script>
+    //selecting ul& input tag
+    var input=document.getElementById("input")
+    var ul=document.getElementById("list container")
+
+    function Add(){
+        var listitem=document.createElement("li")
+        listitem.innerHTML=input.value +"<button onclick='deleteItem(event)'>Delete</button>"
+        ul.append(listitem)
+    }
+    function deleteItem(event){
+        event.target.parentElement.remove()
+    }
+</script>
+</body>

@@ -1,0 +1,170 @@
+<body>
+    <style>
+        body{
+            background-color: rgb(101, 153, 136);
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        h1{
+             background-color: rgb(136, 47, 47);
+            font-size: 45px;
+            font-family: 'Times New Roman', Times, serif;
+            margin-top: 0px;
+            text-align: center;
+            text-transform: uppercase;
+        }
+        h2{
+            font-size: 33px;
+            color: rgb(12, 3, 97);
+        }
+    #Student{
+        width: 50%;
+        height: 30px;
+        margin-top: 60px;
+        margin-left: 350px;
+        color: black;
+        background-color: whitesmoke;
+        border-color: blueviolet;
+    
+    }
+    #enter{
+        margin-left: 450px;
+        color: black;
+        background-color: whitesmoke;
+      border-color: blue;
+    }
+        table{
+            background-color: #3494cc;
+            color: whitesmoke;
+            text-align: center;
+            padding: 5px;
+            margin-top: 35px;
+            margin-left: 400px;
+            table-layout: initial;
+            width: 350px;
+            height: 40%;
+            font-size: 20px;
+            border-radius: 5px;
+            
+    }
+    
+    button{
+        background-color: green;
+        width: 140px;
+        height: 30px;
+        margin-left: 30px;
+        justify-content: space-around;
+        border-color: rgb(124, 206, 238);
+        text-align: center;
+    }
+    input{
+        background-color: white;
+        color: blue;
+        
+    }
+
+    
+    </style>
+    <h1>Student Registration Form</h1>
+    <h2><marquee>Kindly Register Your Form ! Please Don't Forget...</marquee></h2>
+    <form id="form" onsubmit="update(event)">
+    <table id="enter" border="4px">
+        <tr>
+            <td>Name:</td>
+            <td><input id="name" type="text"></td>
+        </tr>
+
+        <tr>
+            <td>Age:</td>
+            <td><input  id="age"type="number"></td>
+        </tr>
+        <tr>
+            <td>Gender:</td>
+            <td>
+                <input type="radio" name="gender" value="MALE">MALE
+                <input type="radio" name="gender" value="FEMALE">FEMALE
+        </td>
+        </tr>
+        <tr>
+            <td>Course:</td>
+            <td><select name="course" id="course">
+            <option>Python</option>
+            <option>Java</option>
+            <option>HTML</option>
+            <option>CSS</option>
+            <option>Javascript</option>
+        </select></td>
+        </tr>
+        <tr>
+            <td>Email:</td>
+            <td><input id="email" type="email"></td>
+        </tr>
+        <tr>
+            <td colspan="2"><button type="submit">Save</button></td>
+        </tr>
+    </table>
+</form>
+<table id="Student" border="4px">
+    <thead>
+        <tr>
+            <th>NAME</th>
+            <th>AGE</th>
+            <th>GENDER</th>
+            <th>COURSE</th>
+            <th>EMAIL</th>
+            <th>ACTION</th>
+        </tr>
+    </thead>
+    <tbody id="tableBody">
+
+    </tbody>
+</table>
+<script>
+    
+    function update(event){
+        event.preventDefault()
+        //Prevent from submitting
+
+        //get from name input values
+        var nameInput=document.getElementById("name")
+        var name=nameInput.value
+
+         //get from age input values
+        var ageInput=document.getElementById("age")
+        var age=ageInput.value
+
+        //get from course input values
+        var courseInput=document.getElementById("course")
+        var course=courseInput.value
+
+        //get from gender input values
+        var genderInput=document.querySelector('input[name="gender"]:checked')
+        var gender=genderInput?genderInput.value:"Not Selected"
+
+        //get from email input values
+        var emailInput=document.getElementById("email")
+        var email=emailInput.value
+
+
+        //create table row
+        var row =document.createElement("tr")
+        row.innerHTML=`
+                      <td> ${name}</td>
+                       <td>    ${age}</td>
+                         <td>  ${gender}</td>
+                          <td> ${course}</td>
+                           <td>${email}</td>
+                       <td><button onclick="this.closest('tr').remove()">Delete</button>
+                       </td>                
+`
+                
+        //Append row to table
+        document.getElementById("tableBody").appendChild(row);
+
+        //Reset form
+        document.getElementById("form").reset()
+                       
+    }
+
+</script>
+</body>

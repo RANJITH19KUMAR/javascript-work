@@ -1,0 +1,27 @@
+<style>
+input{
+    background-color: rgb(209, 157, 157);
+    color: white;
+    border-color: aqua;
+    padding: 20px;
+   
+ 
+   
+}
+
+</style>
+
+<input id="inputbox" onkeyup="update()">
+
+<h1 id="result"></h1>
+
+<script>
+    //selecting input tag
+    //selecting h1 tag
+    var inputbox=document.getElementById("inputbox")
+    var result=document.getElementById("result")
+    function update()
+    {
+        result.textContent=inputbox.value
+    }
+</script>
